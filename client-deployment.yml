@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-timeout-thrift-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-timeout-thrift-client
+  template:
+    metadata:
+      labels:
+        app: test-timeout-thrift-client
+    spec:
+      containers:
+      - name: test-timeout-thrift-client
+        image: chingyangtseng/test-timeout-thrift-client:latest
+        imagePullPolicy: Always
+        command: ["sleep", "1h"]

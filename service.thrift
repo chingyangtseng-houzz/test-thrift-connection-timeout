@@ -1,0 +1,3 @@
+service SimpleService {
+  string delayedResponse()
+}

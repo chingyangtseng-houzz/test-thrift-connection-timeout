@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-timeout-thrift-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-timeout-thrift-server
+  template:
+    metadata:
+      labels:
+        app: test-timeout-thrift-server
+    spec:
+      containers:
+      - name: test-timeout-thrift-server
+        image: chingyangtseng/test-timeout-thrift-server:latest
+        ports:
+        - containerPort: 9090
+        imagePullPolicy: Always
